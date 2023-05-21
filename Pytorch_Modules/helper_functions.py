@@ -122,7 +122,7 @@ def predict_on_custom(model: torch.nn.Module,
 
 def make_predictions(dataloder:torch.utils.data.DataLoader, model_:torch.nn.Module,
                       device: torch.device):
-  """ raturns: preds_tensor, targets_tensor"""
+  """ raturns: preds_tensor, true_predictions"""
   # 1. Make predictions with trained model
   y_preds = []
   y_targets = []  # to save the targets with the same shuffle, in case shuffle is true in the dataloader
@@ -139,8 +139,8 @@ def make_predictions(dataloder:torch.utils.data.DataLoader, model_:torch.nn.Modu
       y_targets.append(y.cpu())
   # Concatenate list of predictions into a tensor
   preds_tensor = torch.cat(y_preds)
-  targets_tensor = torch.cat(y_targets)
-  return preds_tensor, targets_tensor
+  true_predictions = torch.cat(y_targets)
+  return preds_tensor, true_predictions
 
 def plot_confusion(targets, predictions, class_names):
   confmat = ConfusionMatrix(num_classes=len(class_names), task='multiclass')
