@@ -93,16 +93,20 @@ def plot_loss_curves(results: Dict[str, List[float]]):
   plt.xlabel("Epochs")
   plt.legend()
 
+
 def predict_on_custom(model: torch.nn.Module, 
                       img_path: str,
                       device: torch.device, 
                       class_names: List[str] = None, 
                       target_size=None):
-  with Image.open(img_path) as f:
+  """a function to predict on a custom image and plot the image with pred prop"""
+  with Image.open(img_path) as img:
+    rgb_image = img.convert('RGB')
     custom_transform = transforms.Compose([transforms.Resize(size=(target_size, target_size)),
                                            transforms.ToTensor()])
-    transformed_image = custom_transform(f)
-    plt.imshow(f)
+    transformed_image = custom_transform(rgb_image)
+
+    plt.imshow(rgb_image)
 
   model.eval()
 

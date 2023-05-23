@@ -7,22 +7,22 @@ import os
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 
-NUM_WORKERS = os.cpu_count()
 
 def create_dataloaders(
     train_dir: str, 
     test_dir: str, 
-    transform: transforms.Compose, 
+    train_transform: transforms.Compose,
+    test_transform: transforms.Compose, 
     batch_size: int, 
-    num_workers: int=NUM_WORKERS
+    num_workers: int=os.cpu_count()
 ):
   """
   Creates training and testing DataLoaders.
   Returns:
     A tuple of (train_dataloader, test_dataloader, class_names)
   """
-  train_data = datasets.ImageFolder(train_dir, transform=transform)
-  test_data = datasets.ImageFolder(test_dir, transform=transform)
+  train_data = datasets.ImageFolder(train_dir, transform=train_transform)
+  test_data = datasets.ImageFolder(test_dir, transform=test_transform)
 
   class_names = train_data.classes
 
