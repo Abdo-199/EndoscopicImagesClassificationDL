@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <link rel="stylesheet" href="../static/style.css">
+
+    <title>Endoscopy classifer</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <h1>Endoscopy classifer</h1>
+        </div>
+        <div class="row">
+            <p>A bachelor thesis of Abdelrahman Elsharkawi at HTW-Berlin and XION </p>
+        </div>
+        <div class="row">
+            <p>The image quality will be classified as either good or bad. In case it is good the organ in the image will be predicted</p>
+
+        </div>
+        <div class="row">
+            <h2>Uploader</h2>
+        </div>
+        <div class="row">
+            <img id="uploadedImg">
+        </div>
+
+        <div class="row">
+            <form enctype="multipart/form-data" method="POST" name="fileinfo">
+                <label>Upload your image:</label>
+                <input type="file" name="file" required />
+                <input type="submit" value="Classify!" />
+            </form>
+        </div>
+
+        <div class="row">
+   
+            <h2>Results</h2>
+            <div id="loader" class="lds-dual-ring"></div>
+        </div>
+        
+        <div id="results" class="grid-container">
+        </div>
+    </div>
+    <script src="../static/main.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+
+</html>

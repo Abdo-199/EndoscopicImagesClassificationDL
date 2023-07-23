@@ -1,0 +1,10 @@
+torch==2.0.1
+torchvision==0.15.2
+matplotlib==3.7.1
+notebook==6.4.8
+nbconvert==6.5.4
+tqdm==4.65.0
+Flask==2.3.2
+Flask-Cors==4.0.0
+wandb
+openpyxl
