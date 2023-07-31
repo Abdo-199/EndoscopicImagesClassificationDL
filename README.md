@@ -32,3 +32,7 @@ First change `trained_organ.pth` and `trained_quality.pth` to `server/trained_or
 cd Flask-App
 docker build -t endoscopy_classifier . && docker run --rm -it -p 5000:5000 endoscopy_classifier
 ```
+## Usage of framesDisassembler.py
+```bash
+python framesDisassembler.py Video_path output_path Excel_path device quality organ frame-rate
+```

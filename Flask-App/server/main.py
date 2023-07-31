@@ -60,7 +60,7 @@ def predict():
   if "bad" in title:
      return title
   else:
-     title = predict_on_image(["Ear", "Nose", "Vocal Folds"], "tr_v5_64_clean.pth", transformed_image)
+     title = predict_on_image(["Ear", "Nose", "Vocal Folds"], "tr_v5_32_5e6_5e5.pth", transformed_image)
      
   return title
 
